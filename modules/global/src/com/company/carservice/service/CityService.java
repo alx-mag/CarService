@@ -6,4 +6,6 @@ public interface CityService {
     String NAME = "carservice_CityService";
 
     City getDefaultCity();
+
+    void resetDefaultCity();
 }

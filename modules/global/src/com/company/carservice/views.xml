@@ -28,4 +28,5 @@
         <property name="repair" view="_minimal"/>
     </view>
     <view entity="carservice_Customer" name="customer-view" extends="_local"/>
+    <view entity="carservice_City" name="city-view" extends="_local"/>
 </views>

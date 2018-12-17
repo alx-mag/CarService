@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
-        caption="msg://editorCaption"
-        class="com.company.carservice.web.city.CityEdit"
-        datasource="cityDs"
-        focusComponent="fieldGroup"
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd" caption="msg://editorCaption"
+        class="com.company.carservice.web.city.CityEdit" datasource="cityDs" focusComponent="fieldGroup"
         messagesPack="com.company.carservice.web.city">
     <dsContext>
-        <datasource id="cityDs"
-                    class="com.company.carservice.entity.City"
-                    view="_local"/>
+        <datasource id="cityDs" class="com.company.carservice.entity.City" view="city-view"/>
+        <collectionDatasource id="citiesDs" class="com.company.carservice.entity.City" view="city-view">
+            <query><![CDATA[select e from carservice_City e ]]></query>
+        </collectionDatasource>
     </dsContext>
-    <dialogMode height="600"
-                width="800"/>
+    <dialogMode height="600" width="800"/>
     <layout expand="windowActions" spacing="true">
         <fieldGroup id="fieldGroup" datasource="cityDs">
             <column width="250px">
@@ -20,7 +17,6 @@
                 <field property="defaultCity"/>
             </column>
         </fieldGroup>
-        <frame id="windowActions"
-               screen="editWindowActions"/>
+        <frame id="windowActions" screen="editWindowActions"/>
     </layout>
 </window>

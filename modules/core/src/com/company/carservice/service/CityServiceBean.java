@@ -1,10 +1,13 @@
 package com.company.carservice.service;
 
 import com.company.carservice.entity.City;
+import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.global.DataManager;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @Service(CityService.NAME)
 public class CityServiceBean implements CityService {
@@ -17,8 +20,19 @@ public class CityServiceBean implements CityService {
     @Inject
     private DataManager dataManager;
 
+    @Inject
+    private Persistence persistence;
+
     @Override
+    @Transactional
     public City getDefaultCity() {
-        return dataManager.loadValue(GET_DEFAULT_CITY_QUERY, City.class).one();
+        return (City) persistence.getEntityManager().createQuery(GET_DEFAULT_CITY_QUERY).getFirstResult();
+    }
+
+    @Override
+    @Transactional
+    public void resetDefaultCity() {
+        List resultList = persistence.getEntityManager().createQuery(GET_DEFAULT_CITY_QUERY).getResultList();
+        resultList.forEach(result -> ((City) result).setDefaultCity(false));
     }
 }

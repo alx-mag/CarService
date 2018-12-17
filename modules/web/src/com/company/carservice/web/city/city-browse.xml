@@ -8,7 +8,7 @@
     <dsContext>
         <groupDatasource id="citiesDs"
                          class="com.company.carservice.entity.City"
-                         view="_local">
+                         view="city-view">
             <query>
                 <![CDATA[select e from carservice_City e]]>
             </query>
@@ -31,6 +31,10 @@
                 <action id="edit"
                         openType="NEW_TAB"/>
                 <action id="remove"/>
+                <action id="refresh"/>
+                <action id="markAsDefault"
+                        caption="Mark as default"
+                        invoke="markAsDefault"/>
             </actions>
             <columns>
                 <column id="name"/>
@@ -44,6 +48,8 @@
                 <button id="createBtn" action="citiesTable.create"/>
                 <button id="editBtn" action="citiesTable.edit"/>
                 <button id="removeBtn" action="citiesTable.remove"/>
+                <button id="refreshBtn" action="citiesTable.refresh"/>
+                <button id="markAsDefaultBtn" action="citiesTable.markAsDefault"/>
             </buttonsPanel>
         </groupTable>
     </layout>
