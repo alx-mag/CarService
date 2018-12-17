@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd" caption="msg://browseCaption"
+        class="com.company.carservice.web.individual.IndividualBrowse" focusComponent="individualsTable"
+        lookupComponent="individualsTable" messagesPack="com.company.carservice.web.individual">
+    <dsContext>
+        <groupDatasource id="individualsDs" class="com.company.carservice.entity.Individual" view="_local">
+            <query><![CDATA[select e from carservice_Individual e]]></query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600" width="800"/>
+    <layout expand="individualsTable" spacing="true">
+        <filter id="filter" applyTo="individualsTable" datasource="individualsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="individualsTable" width="100%">
+            <actions>
+                <action id="create" openType="NEW_TAB"/>
+                <action id="edit" openType="NEW_TAB"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="email"/>
+                <column id="phone"/>
+                <column id="passportNo"/>
+            </columns>
+            <rows datasource="individualsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel" alwaysVisible="true">
+                <button id="createBtn" action="individualsTable.create"/>
+                <button id="editBtn" action="individualsTable.edit"/>
+                <button id="removeBtn" action="individualsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

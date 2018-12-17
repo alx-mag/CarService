@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="carservice_Repair" name="repair-view" extends="_local">
+        <property name="center" view="_minimal">
+            <property name="name"/>
+            <property name="phone"/>
+            <property name="city" view="_minimal">
+                <property name="name"/>
+            </property>
+        </property>
+        <property name="employee" view="_minimal">
+            <property name="firstName"/>
+            <property name="lastName"/>
+            <property name="email"/>
+        </property>
+    </view>
+    <view entity="carservice_CarServiceCenter" name="carServiceCenter-view" extends="_local">
+        <property name="employees" view="_minimal">
+            <property name="email"/>
+            <property name="salary"/>
+        </property>
+        <property name="city" view="_minimal"/>
+        <property name="customer" view="_minimal">
+            <property name="email"/>
+            <property name="phone"/>
+        </property>
+        <property name="repair" view="_minimal"/>
+    </view>
+    <view entity="carservice_Customer" name="customer-view" extends="_local"/>
+</views>

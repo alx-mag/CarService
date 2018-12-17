@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="repairsTable"
+        messagesPack="com.company.carservice.web.repair">
+    <data readOnly="true">
+        <collection id="repairsDc"
+                    class="com.company.carservice.entity.Repair"
+                    view="repair-view">
+            <loader id="repairsDl">
+                <query>
+                    <![CDATA[select e from carservice_Repair e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="repairsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="repairsTable"
+                dataLoader="repairsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="repairsTable"
+                    width="100%"
+                    dataContainer="repairsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="description"/>
+                <column id="center"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="repairsTable.create"/>
+                <button id="editBtn" action="repairsTable.edit"/>
+                <button id="removeBtn" action="repairsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

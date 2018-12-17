@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.carservice.web.carservicecenter.CarServiceCenterBrowse"
+        focusComponent="carServiceCentersTable"
+        lookupComponent="carServiceCentersTable"
+        messagesPack="com.company.carservice.web.carservicecenter">
+    <dsContext>
+        <groupDatasource id="carServiceCentersDs"
+                         class="com.company.carservice.entity.CarServiceCenter"
+                         view="carServiceCenter-view">
+            <query>
+                <![CDATA[select e from carservice_CarServiceCenter e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="carServiceCentersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="carServiceCentersTable"
+                datasource="carServiceCentersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="carServiceCentersTable"
+                    width="100%">
+            <actions>
+                <action id="create"
+                        openType="NEW_TAB"/>
+                <action id="edit"
+                        openType="NEW_TAB"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="phone"/>
+                <column id="city"/>
+            </columns>
+            <rows datasource="carServiceCentersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="carServiceCentersTable.create"/>
+                <button id="editBtn" action="carServiceCentersTable.edit"/>
+                <button id="removeBtn" action="carServiceCentersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+
+    <screen id="carservice_Individual.browse" template="com/company/carservice/web/individual/individual-browse.xml"/>
+    <screen id="carservice_Individual.edit" template="com/company/carservice/web/individual/individual-edit.xml"/>
+    <screen id="carservice_CarServiceCenter.browse"
+            template="com/company/carservice/web/carservicecenter/car-service-center-browse.xml"/>
+    <screen id="carservice_CarServiceCenter.edit"
+            template="com/company/carservice/web/carservicecenter/car-service-center-edit.xml"/>
+</screen-config>

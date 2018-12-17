@@ -1,0 +1,2 @@
+alter table CARSERVICE_COMPANY add constraint FK_CARSERVICE_COMPANY_ON_ID foreign key (ID) references CARSERVICE_CUSTOMER(ID) on delete CASCADE;
+create unique index IDX_CARSERVICE_COMPANY_UNIQ_INN on CARSERVICE_COMPANY (INN) ;
