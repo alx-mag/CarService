@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="application-carservice" insertBefore="administration">
-        <item screen="carservice_City.browse"/>
         <item screen="carservice_Company.browse"/>
         <item screen="carservice_Employee.browse"/>
         <item screen="carservice_Repair.browse"/>
         <item screen="carservice_Customer.browse"/>
         <item screen="carservice_Individual.browse"/>
         <item screen="carservice_CarServiceCenter.browse"/>
+        <item screen="carservice_City.browse"/>
     </menu>
 </menu-config>

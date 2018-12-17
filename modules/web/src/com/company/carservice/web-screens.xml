@@ -7,4 +7,6 @@
             template="com/company/carservice/web/carservicecenter/car-service-center-browse.xml"/>
     <screen id="carservice_CarServiceCenter.edit"
             template="com/company/carservice/web/carservicecenter/car-service-center-edit.xml"/>
+    <screen id="carservice_City.browse" template="com/company/carservice/web/city/city-browse.xml"/>
+    <screen id="carservice_City.edit" template="com/company/carservice/web/city/city-edit.xml"/>
 </screen-config>
