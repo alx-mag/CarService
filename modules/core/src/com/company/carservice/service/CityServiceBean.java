@@ -1,5 +1,6 @@
 package com.company.carservice.service;
 
+import com.company.carservice.core.DefaultCityResolver;
 import com.company.carservice.entity.City;
 import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.global.DataManager;
@@ -10,29 +11,18 @@ import javax.inject.Inject;
 import java.util.List;
 
 @Service(CityService.NAME)
-public class CityServiceBean implements CityService {
-
-    public static final String GET_DEFAULT_CITY_QUERY =
-            "select c " +
-            "from carservice_City c " +
-            "where c.defaultCity = TRUE";
-
+public class CityServiceBean implements CityService
+{
     @Inject
-    private DataManager dataManager;
-
-    @Inject
-    private Persistence persistence;
+    private DefaultCityResolver defaultCityResolver;
 
     @Override
-    @Transactional
     public City getDefaultCity() {
-        return (City) persistence.getEntityManager().createQuery(GET_DEFAULT_CITY_QUERY).getFirstResult();
+        return defaultCityResolver.getDefaultCity();
     }
 
     @Override
-    @Transactional
     public void resetDefaultCity() {
-        List resultList = persistence.getEntityManager().createQuery(GET_DEFAULT_CITY_QUERY).getResultList();
-        resultList.forEach(result -> ((City) result).setDefaultCity(false));
+        defaultCityResolver.resetDefaultCity();
     }
 }

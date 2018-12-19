@@ -11,71 +11,77 @@
         </datasource>
     </dsContext>
     <dialogMode height="600" width="800"/>
-    <layout expand="windowActions" spacing="true">
-        <fieldGroup id="fieldGroup" datasource="carServiceCenterDs">
-            <column width="250px">
-                <field property="name"/>
-                <field property="phone"/>
-                <field property="city"/>
-            </column>
-        </fieldGroup>
-        <groupBox id="employeesBox" caption="msg://com.company.carservice.entity/CarServiceCenter.employees">
-            <table id="employeesTable" width="100%" height="200px">
-                <actions>
-                    <action id="create"/>
-                    <action id="edit"/>
-                    <action id="remove"/>
-                </actions>
-                <columns>
-                    <column id="firstName"/>
-                    <column id="lastName"/>
-                    <column id="email"/>
-                    <column id="salary"/>
-                </columns>
-                <rows datasource="employeesDs"/>
-                <buttonsPanel>
-                    <button action="employeesTable.create"/>
-                    <button action="employeesTable.edit"/>
-                    <button action="employeesTable.remove"/>
-                </buttonsPanel>
-            </table>
-        </groupBox>
-        <groupBox id="customerBox" caption="msg://com.company.carservice.entity/CarServiceCenter.customer">
-            <table id="customerTable" width="100%" height="200px">
-                <actions>
-                    <action id="add"/>
-                    <action id="remove"/>
-                </actions>
-                <columns>
-                    <column id="name"/>
-                    <column id="email"/>
-                    <column id="phone"/>
-                </columns>
-                <rows datasource="customerDs"/>
-                <buttonsPanel>
-                    <button action="customerTable.add"/>
-                    <button action="customerTable.remove"/>
-                </buttonsPanel>
-            </table>
-        </groupBox>
-        <groupBox id="repairBox" caption="msg://com.company.carservice.entity/CarServiceCenter.repair">
-            <table id="repairTable" width="100%" height="200px">
-                <actions>
-                    <action id="create"/>
-                    <action id="edit"/>
-                    <action id="remove"/>
-                </actions>
-                <columns>
-                    <column id="description"/>
-                </columns>
-                <rows datasource="repairDs"/>
-                <buttonsPanel>
-                    <button action="repairTable.create"/>
-                    <button action="repairTable.edit"/>
-                    <button action="repairTable.remove"/>
-                </buttonsPanel>
-            </table>
-        </groupBox>
-        <frame id="windowActions" screen="editWindowActions"/>
+    <layout spacing="true">
+        <tabSheet id="tabSheet">
+            <tab id="mainTab" caption="Main" margin="true,false,false,false" spacing="true">
+                <fieldGroup id="fieldGroup" datasource="carServiceCenterDs">
+                    <column width="250px">
+                        <field property="name"/>
+                        <field property="phone"/>
+                        <field property="city"/>
+                    </column>
+                </fieldGroup>
+                <groupBox id="employeesBox" caption="msg://com.company.carservice.entity/CarServiceCenter.employees">
+                    <table id="employeesTable" width="100%" height="200px">
+                        <actions>
+                            <action id="create"/>
+                            <action id="edit"/>
+                            <action id="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="firstName"/>
+                            <column id="lastName"/>
+                            <column id="email"/>
+                            <column id="salary"/>
+                        </columns>
+                        <rows datasource="employeesDs"/>
+                        <buttonsPanel>
+                            <button action="employeesTable.create"/>
+                            <button action="employeesTable.edit"/>
+                            <button action="employeesTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+                <groupBox id="repairBox" caption="msg://com.company.carservice.entity/CarServiceCenter.repair">
+                    <table id="repairTable" width="100%" height="200px">
+                        <actions>
+                            <action id="create"/>
+                            <action id="edit"/>
+                            <action id="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="description"/>
+                        </columns>
+                        <rows datasource="repairDs"/>
+                        <buttonsPanel>
+                            <button action="repairTable.create"/>
+                            <button action="repairTable.edit"/>
+                            <button action="repairTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+                <frame id="windowActions" height="100%" screen="editWindowActions"/>
+            </tab>
+            <tab id="customersTab" caption="Customers" margin="true,false,false,false" spacing="true">
+                <groupBox id="customerBox" caption="msg://com.company.carservice.entity/CarServiceCenter.customer">
+                    <table id="customerTable" width="100%" height="200px">
+                        <actions>
+                            <action id="add"/>
+                            <action id="remove"/>
+                        </actions>
+                        <columns>
+                            <column id="name"/>
+                            <column id="email"/>
+                            <column id="phone"/>
+                        </columns>
+                        <rows datasource="customerDs"/>
+                        <buttonsPanel>
+                            <button action="customerTable.add"/>
+                            <button action="customerTable.remove"/>
+                        </buttonsPanel>
+                    </table>
+                </groupBox>
+            </tab>
+        </tabSheet>
     </layout>
 </window>

@@ -5,7 +5,7 @@
     <dsContext>
         <datasource id="cityDs" class="com.company.carservice.entity.City" view="city-view"/>
         <collectionDatasource id="citiesDs" class="com.company.carservice.entity.City" view="city-view">
-            <query><![CDATA[select e from carservice_City e ]]></query>
+            <query><![CDATA[select e from carservice_City e]]></query>
         </collectionDatasource>
     </dsContext>
     <dialogMode height="600" width="800"/>

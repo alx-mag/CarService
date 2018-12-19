@@ -2,6 +2,7 @@ package com.company.carservice.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.Listeners;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @NamePattern("%s|name")
 @Table(name = "CARSERVICE_CITY")
 @Entity(name = "carservice_City")
+@Listeners("carservice_CityListener")
 public class City extends StandardEntity {
     @NotNull
     @Column(name = "NAME", nullable = false, unique = true)

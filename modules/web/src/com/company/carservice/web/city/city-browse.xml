@@ -1,40 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
-        caption="msg://browseCaption"
-        class="com.company.carservice.web.city.CityBrowse"
-        focusComponent="citiesTable"
-        lookupComponent="citiesTable"
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd" caption="msg://browseCaption"
+        class="com.company.carservice.web.city.CityBrowse" focusComponent="citiesTable" lookupComponent="citiesTable"
         messagesPack="com.company.carservice.web.city">
     <dsContext>
-        <groupDatasource id="citiesDs"
-                         class="com.company.carservice.entity.City"
-                         view="city-view">
-            <query>
-                <![CDATA[select e from carservice_City e]]>
-            </query>
+        <groupDatasource id="citiesDs" class="com.company.carservice.entity.City" view="city-view"
+                         loadDynamicAttributes="true">
+            <query><![CDATA[select e from carservice_City e]]></query>
         </groupDatasource>
     </dsContext>
-    <dialogMode height="600"
-                width="800"/>
-    <layout expand="citiesTable"
-            spacing="true">
-        <filter id="filter"
-                applyTo="citiesTable"
-                datasource="citiesDs">
+    <dialogMode height="600" width="800"/>
+    <layout expand="citiesTable" spacing="true">
+        <filter id="filter" applyTo="citiesTable" datasource="citiesDs">
             <properties include=".*"/>
         </filter>
-        <groupTable id="citiesTable"
-                    width="100%">
+        <groupTable id="citiesTable" width="100%">
             <actions>
-                <action id="create"
-                        openType="NEW_TAB"/>
-                <action id="edit"
-                        openType="NEW_TAB"/>
+                <action id="create" openType="NEW_TAB"/>
+                <action id="edit" openType="NEW_TAB"/>
                 <action id="remove"/>
                 <action id="refresh"/>
-                <action id="markAsDefault"
-                        caption="Mark as default"
-                        invoke="markAsDefault"/>
+                <action id="markAsDefault" caption="Mark as default" invoke="markAsDefault"/>
             </actions>
             <columns>
                 <column id="name"/>
@@ -43,8 +28,7 @@
             </columns>
             <rows datasource="citiesDs"/>
             <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
+            <buttonsPanel id="buttonsPanel" alwaysVisible="true">
                 <button id="createBtn" action="citiesTable.create"/>
                 <button id="editBtn" action="citiesTable.edit"/>
                 <button id="removeBtn" action="citiesTable.remove"/>

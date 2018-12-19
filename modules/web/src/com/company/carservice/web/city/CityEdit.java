@@ -13,15 +13,15 @@ public class CityEdit extends AbstractEditor<City> {
     @Inject
     private CityService cityService;
 
-    @Inject
-    private CollectionDatasource<City, UUID> citiesDs;
 
-    @Override
-    protected boolean preCommit() {
-        if (getItem().getDefaultCity()) {
-            cityService.resetDefaultCity();
-        }
 
-        return true;
-    }
+//
+//    @Override
+//    protected boolean preCommit() {
+//        if (getItem().getDefaultCity()) {
+//            cityService.resetDefaultCity();
+//        }
+//
+//        return true;
+//    }
 }
