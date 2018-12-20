@@ -1,0 +1,1 @@
+alter table CARSERVICE_CAR_SERVICE_CENTER alter column CREATOR rename to CREATOR__U55820 ^

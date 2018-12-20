@@ -105,6 +105,7 @@ create table CARSERVICE_CAR_SERVICE_CENTER (
     NAME varchar(255) not null,
     PHONE varchar(255) not null,
     CITY_ID varchar(36),
+    CREATOR_ID varchar(36),
     --
     primary key (ID)
 )^
