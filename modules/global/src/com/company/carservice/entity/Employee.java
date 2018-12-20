@@ -5,14 +5,14 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 @NamePattern("%s %s|firstName,lastName")
 @Table(name = "CARSERVICE_EMPLOYEE")
 @Entity(name = "carservice_Employee")
-public class Employee extends StandardEntity
-{
+public class Employee extends StandardEntity {
     @NotNull
     @Column(name = "FIRST_NAME", nullable = false, unique = true)
     protected String firstName;
@@ -29,7 +29,7 @@ public class Employee extends StandardEntity
     protected String email;
 
     @Column(name = "SALARY")
-    protected String salary;
+    protected BigDecimal salary;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CENTER_ID")
@@ -38,7 +38,7 @@ public class Employee extends StandardEntity
     @JoinTable(name = "CARSERVICE_REPAIR_EMPLOYEE_LINK",
             joinColumns = @JoinColumn(name = "EMPLOYEE_ID"),
             inverseJoinColumns = @JoinColumn(name = "REPAIR_ID"))
-    @ManyToMany
+    @ManyToMany(mappedBy = "")
     protected List<Repair> repairs;
 
     public List<Repair> getRepairs() {
@@ -57,11 +57,11 @@ public class Employee extends StandardEntity
         this.center = center;
     }
 
-    public String getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 

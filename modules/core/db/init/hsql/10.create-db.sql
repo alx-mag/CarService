@@ -67,7 +67,7 @@ create table CARSERVICE_EMPLOYEE (
     LAST_NAME varchar(255) not null,
     BIRTH_DATE date,
     EMAIL varchar(255),
-    SALARY varchar(255),
+    SALARY decimal(19, 2),
     CENTER_ID varchar(36),
     --
     primary key (ID)
