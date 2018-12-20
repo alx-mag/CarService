@@ -56,7 +56,7 @@ public class EmployeeWorkerMBeanImpl implements EmployeeWorkerMBean
 
     private List<Employee> getBirthdayEmployees() {
         Binding params = new Binding();
-        params.setVariable("table", Employee.TABLE);
+        params.setVariable("table", "CARSERVICE_EMPLOYEE");
         params.setVariable("column", "BIRTH_DATE");
         String query = scripting.runGroovyScript("com/company/carservice/BirthdayEmployeesSQL.groovy", params);
         try (Transaction tx = persistence.createTransaction()) {

@@ -9,12 +9,10 @@ import java.util.Date;
 import java.util.List;
 
 @NamePattern("%s %s|firstName,lastName")
-@Table(name = Employee.TABLE)
+@Table(name = "CARSERVICE_EMPLOYEE")
 @Entity(name = "carservice_Employee")
 public class Employee extends StandardEntity
 {
-    public static final String TABLE = "CARSERVICE_EMPLOYEE";
-
     @NotNull
     @Column(name = "FIRST_NAME", nullable = false, unique = true)
     protected String firstName;
