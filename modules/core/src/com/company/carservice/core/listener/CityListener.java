@@ -3,7 +3,6 @@ package com.company.carservice.core.listener;
 import com.company.carservice.core.DefaultCityResolver;
 import com.company.carservice.entity.City;
 import com.haulmont.cuba.core.EntityManager;
-import com.haulmont.cuba.core.PersistenceTools;
 import com.haulmont.cuba.core.listener.BeforeInsertEntityListener;
 import com.haulmont.cuba.core.listener.BeforeUpdateEntityListener;
 import org.springframework.stereotype.Component;
@@ -15,9 +14,6 @@ public class CityListener implements BeforeInsertEntityListener<City>, BeforeUpd
 {
     @Inject
     private DefaultCityResolver defaultCityResolver;
-
-//    @Inject
-//    private PersistenceTools persistenceTools;
 
     @Override
     public void onBeforeInsert(City entity, EntityManager entityManager) {

@@ -1,27 +1,28 @@
 package com.company.carservice.web.city;
 
 import com.company.carservice.entity.City;
-import com.company.carservice.service.CityService;
+import com.haulmont.cuba.core.global.DataManager;
+import com.haulmont.cuba.core.global.LoadContext;
 import com.haulmont.cuba.gui.components.AbstractEditor;
-import com.haulmont.cuba.gui.data.CollectionDatasource;
 
 import javax.inject.Inject;
-import java.util.UUID;
 
-public class CityEdit extends AbstractEditor<City> {
-
+public class CityEdit extends AbstractEditor<City>
+{
     @Inject
-    private CityService cityService;
+    private DataManager dataManager;
 
-
-
-//
-//    @Override
-//    protected boolean preCommit() {
-//        if (getItem().getDefaultCity()) {
-//            cityService.resetDefaultCity();
-//        }
-//
-//        return true;
-//    }
+    // Controller side implementation of default city reset
+    @Override
+    protected boolean preCommit() {
+        City currentCity = getItem();
+        if (currentCity.getDefaultCity()) {
+            dataManager.loadList(LoadContext.create(City.class))
+                    .stream().filter(city -> city.getDefaultCity() && city != currentCity).forEach(city -> {
+                        city.setDefaultCity(false);
+                        dataManager.commit(city);
+            });
+        }
+        return true;
+    }
 }
