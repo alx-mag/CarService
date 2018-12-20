@@ -1,6 +1,7 @@
 package com.company.carservice.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.SoftDelete;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Listeners;
 
@@ -13,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "CARSERVICE_CITY")
 @Entity(name = "carservice_City")
 @Listeners("carservice_CityListener")
-public class City extends StandardEntity {
+public class City extends StandardEntity implements SoftDelete {
     @NotNull
     @Column(name = "NAME", nullable = false, unique = true)
     protected String name;
